@@ -19,6 +19,16 @@ routes.use(
   require("../controllers/questionsController")
 );
 
-routes.use("/reports", require("../controllers/reportsController"));
+routes.use(
+  "/reports",
+  verifyToken,
+  require("../controllers/reportsController")
+);
+
+routes.use(
+  "/feedback",
+  verifyToken,
+  require("../controllers/feedbackController")
+);
 
 module.exports = routes;
